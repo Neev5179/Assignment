@@ -9,26 +9,47 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class ShaowTableComponent {
   dataSource = new MatTableDataSource<any>([]);
-
-  heading = ["id", "brand", "category", "description", "title", "stock"];
-
+  // columnsToDisplay: string[] = this.heading.slice()
+ 
+  heading: string[]= ["id", "brand", "category", "description", "title", "stock"];
+  addColume=this.heading.slice();
+  serarchText:any
   constructor(private serviceService: ServiceService ,private cdr: ChangeDetectorRef,
-     private zone: NgZone) {}
-
+   ) {}
+  //  private zone: NgZone
   ngOnInit() {
     console.log("calling...........");
     
-    this.fetchData();
+    // this.fetchData();
   }
   
   fetchData() {
     this.serviceService.getProducts().subscribe((res: any) => {
       console.log("responce",res);
+    
+        this.dataSource.data = res.products;
       
-      this.dataSource.data = res;
-            console.log("data is::",this.dataSource);
-      this.cdr.detectChanges();
+      
+      // this.cdr.detectChanges();
     });
+  }
+  applyFilter(event: Event) {
+    
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  addColumn() {
+    const randomColumn = Math.floor(Math.random() * this.heading.length);
+    this.addColume.push(this.heading[randomColumn]);
+    alert("add colums.............!")
+  }
+
+  removeColumn() {
+    if (this.addColume.length) {
+      this.addColume.pop();
+      alert("remove colums.............!")
+    }
   }
 }
 

@@ -1,8 +1,15 @@
 <div class="parent">
-<button (click)="fetchData()"  >feach data</button>
+  <button (click)="fetchData()"  >feach data</button><br><br>
+
+  <button mat-raised-button (click)="addColumn()"> Add column </button>
+  <button mat-raised-button (click)="removeColumn()"> Remove column </button>
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+  </mat-form-field>
 
 
-<table  mat-table [dataSource]="dataSource.data" class="mat-elevation-z8 demo-table">
+<table *ngIf="dataSource.data.length > 0" mat-table [dataSource]="dataSource.data" class="mat-elevation-z8 demo-table">
   <!-- Position Column -->
   <!-- heading=["id","brand","category","description","title","stock"]; -->
 
