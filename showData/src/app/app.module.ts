@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadingComponent } from './loading/loading.component';
 import { ShareModelModule } from './CommanFile/share-model/share-model.module';
-
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +16,8 @@ import { ShareModelModule } from './CommanFile/share-model/share-model.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ShareModelModule
+    ShareModelModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

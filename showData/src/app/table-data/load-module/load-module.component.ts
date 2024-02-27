@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-load-module',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class LoadModuleComponent {
 
+
+  constructor(private router:Router){}
+
+  showtable(){
+    this.router.navigateByUrl("mode/show");
+  }
 }

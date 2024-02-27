@@ -4,6 +4,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { HttpClientModule } from '@angular/common/http';
+
+
+
 @NgModule({
   declarations: [],
   imports: [
@@ -11,13 +15,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatButtonModule,
     MatInputModule,
     MatTableModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HttpClientModule,
   ],
   exports:[
     MatButtonModule,
     MatInputModule,
     MatTableModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HttpClientModule,
   ]
 })
 export class ShareModelModule { }
